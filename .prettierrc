@@ -1,0 +1,9 @@
+{
+  "semi": true,                // 在语句末尾添加分号
+  "singleQuote": true,         // 使用单引号而非双引号
+  "trailingComma": "es5",      // 对象、数组中尾随的逗号
+  "tabWidth": 2,               // 一个缩进级别为 2 个空格
+  "useTabs": false,            // 使用空格而不是 Tab
+  "printWidth": 80,            // 每行代码最大长度
+  "arrowParens": "always"      // 箭头函数参数始终使用括号
+}
