@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import TimeLine from './components/TimeLine/index.vue'
-
+import TextArea from './components/TextArea/index.vue';
 </script>
 
 <template>
   <div>
+    时间轴：
     <TimeLine style="width: 302px;height: 500px" />
-
+  </div>
+  <hr>
+  <div>
+    输入框：
+    <TextArea></TextArea>
   </div>
 
 </template>
