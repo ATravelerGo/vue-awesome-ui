@@ -196,6 +196,10 @@ docs: update documentation
 
 然后进入.husky/commit-msg 文件里 粘贴  pnpm exec commitlint --config commitlint.config.ts --edit "$1"
 
+
+其实我们配置的commitlint.config.ts文件 他结合commitizen后可以触发交互式提示
+
+
 ## husky
 
 ```
@@ -214,3 +218,5 @@ npm命令是这样的：npx husky init
 
 
 > npm 和 pnpm 都有一个特殊的 prepare 脚本，它会在安装依赖后执行。这个脚本会在以下场景触发 !!!!!!!!!!!! 所以在prepare脚本下 进行husky的初始化
+
+
