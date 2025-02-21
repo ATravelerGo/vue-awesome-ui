@@ -14,7 +14,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pnpm exec ts-node commitlint.config.ts --edit ${1}"
+      "commit-msg": "pnpm exec ts-node commitlint.config.ts --edit ${1}"
     }
   },
   "keywords": [],
