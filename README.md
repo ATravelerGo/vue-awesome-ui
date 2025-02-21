@@ -165,4 +165,52 @@ packages:
 
 ## 3. vitest暂时没接触，需要下去拓展
 
-后面项目进行了迁移
+
+
+
+## commitlint工具使用
+
+```
+pnpm add --save-dev  commitlint @commitlint/config-conventional @commitlint/cli
+```
+1. commitlint：用于检查 Git 提交信息的格式。
+2. @commitlint/config-conventional：提供了一些常见的提交规范配置。
+3. @commitlint/cli：用于执行 commitlint 检查。
+
+> 在项目根目录下，创建一个 commitlint.config.js 文件，配置 commitlint 规则。
+```js
+// commitlint.config.js
+module.exports = {
+  extends: ['@commitlint/config-conventional']
+}
+
+```
+@commitlint/config-conventional 是一个流行的标准，它要求提交信息遵循 Conventional Commits 规范，例如：
+
+feat: add new feature
+fix: fix bug
+docs: update documentation
+
+
+
+
+然后进入.husky/pre-commit 文件里 粘贴  pnpm exec commitlint --config commitlint.config.js --edit "${1}"
+如果创建的是commitlint.config.ts文件 需要先 *** tsc commitlint.config.ts ***
+
+## husky
+
+```
+pnpm add --save-dev husky  // 如果是monopreo的情况下 需要加 -w ，表示确认加在跟目录下
+```
+
+直接修改 .git/hooks：适合小型项目或者没有协作的情况，但不方便版本控制，也不容易管理。
+使用 Husky：提供自动化、版本控制、一致性和跨平台支持，尤其适合团队协作项目。
+
+> Husky是一个用于设置Githooks的工具，它在提交代码前后执行自定义脚本，如代码格式化、质量检查。通过简单配置，与ESLint等配合，提升开发团队的代码质量和流程一致性。
+
+当我们依赖安装好了 想要执行他的命令时
+pnpm命令是这样：pnpm exec husky init
+npm命令是这样的：npx husky init
+
+
+> npm 和 pnpm 都有一个特殊的 prepare 脚本，它会在安装依赖后执行。这个脚本会在以下场景触发 !!!!!!!!!!!! 所以在prepare脚本下 进行husky的初始化
