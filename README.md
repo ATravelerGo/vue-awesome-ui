@@ -177,9 +177,9 @@ pnpm add --save-dev  commitlint @commitlint/config-conventional @commitlint/cli
 2. @commitlint/config-conventional：提供了一些常见的提交规范配置。
 3. @commitlint/cli：用于执行 commitlint 检查。
 
-> 在项目根目录下，创建一个 commitlint.config.js 文件，配置 commitlint 规则。
+> 在项目根目录下，创建一个 commitlint.config.ts 文件，配置 commitlint 规则。
 ```js
-// commitlint.config.js
+// commitlint.config.ts
 module.exports = {
   extends: ['@commitlint/config-conventional']
 }
@@ -194,7 +194,7 @@ docs: update documentation
 
 
 
-然后进入.husky/pre-commit 文件里 粘贴  pnpm exec commitlint --config commitlint.config.js --edit "${1}"
+然后进入.husky/pre-commit 文件里 粘贴  pnpm exec commitlint --config commitlint.config.ts --edit "${1}"
 如果创建的是commitlint.config.ts文件 需要先 *** tsc commitlint.config.ts ***
 
 ## husky

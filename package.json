@@ -12,6 +12,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pnpm exec ts-node commitlint.config.ts --edit ${1}"
+    }
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -23,6 +28,7 @@
     "typescript": "^5.7.3"
   },
   "dependencies": {
-    "@commitlint/types": "^19.5.0"
+    "@commitlint/types": "^19.5.0",
+    "ts-node": "^10.9.2"
   }
 }
