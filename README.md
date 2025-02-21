@@ -212,4 +212,5 @@ pnpm命令是这样：pnpm exec husky init
 npm命令是这样的：npx husky init
 
 
+
 > npm 和 pnpm 都有一个特殊的 prepare 脚本，它会在安装依赖后执行。这个脚本会在以下场景触发 !!!!!!!!!!!! 所以在prepare脚本下 进行husky的初始化
