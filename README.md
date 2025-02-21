@@ -198,6 +198,18 @@ docs: update documentation
 
 
 其实我们配置的commitlint.config.ts文件 他结合commitizen后可以触发交互式提示
+在package.json中配置
+```json
+{
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
+
+```
+然后执行git cz就可以了
 
 
 ## husky
