@@ -12,11 +12,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky"
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "pnpm exec ts-node commitlint.config.ts --edit ${1}"
-    }
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
