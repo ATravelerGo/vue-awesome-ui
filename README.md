@@ -194,8 +194,7 @@ docs: update documentation
 
 
 
-然后进入.husky/pre-commit 文件里 粘贴  pnpm exec commitlint --config commitlint.config.ts --edit "${1}"
-如果创建的是commitlint.config.ts文件 需要先 *** tsc commitlint.config.ts ***
+然后进入.husky/commit-msg 文件里 粘贴  pnpm exec commitlint --config commitlint.config.ts --edit "$1"
 
 ## husky
 
