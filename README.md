@@ -168,7 +168,28 @@ packages:
 
 
 
-## commitlint工具使用
+
+## 4. husky
+
+```
+pnpm add --save-dev husky  // 如果是monopreo的情况下 需要加 -w ，表示确认加在跟目录下
+```
+
+直接修改 .git/hooks：适合小型项目或者没有协作的情况，但不方便版本控制，也不容易管理。
+使用 Husky：提供自动化、版本控制、一致性和跨平台支持，尤其适合团队协作项目。
+
+> Husky是一个用于设置Githooks的工具，它在提交代码前后执行自定义脚本，如代码格式化、质量检查。通过简单配置，与ESLint等配合，提升开发团队的代码质量和流程一致性。
+
+当我们依赖安装好了 想要执行他的命令时
+pnpm命令是这样：pnpm exec husky init
+npm命令是这样的：npx husky init
+
+
+
+> npm 和 pnpm 都有一个特殊的 prepare 脚本，它会在安装依赖后执行。这个脚本会在以下场景触发 !!!!!!!!!!!! 所以在prepare脚本下 进行husky的初始化
+
+
+## 5. commitlint工具使用
 
 ```
 pnpm add --save-dev  commitlint @commitlint/config-conventional @commitlint/cli
@@ -210,25 +231,5 @@ docs: update documentation
 
 ```
 然后执行git cz就可以了
-
-
-## husky
-
-```
-pnpm add --save-dev husky  // 如果是monopreo的情况下 需要加 -w ，表示确认加在跟目录下
-```
-
-直接修改 .git/hooks：适合小型项目或者没有协作的情况，但不方便版本控制，也不容易管理。
-使用 Husky：提供自动化、版本控制、一致性和跨平台支持，尤其适合团队协作项目。
-
-> Husky是一个用于设置Githooks的工具，它在提交代码前后执行自定义脚本，如代码格式化、质量检查。通过简单配置，与ESLint等配合，提升开发团队的代码质量和流程一致性。
-
-当我们依赖安装好了 想要执行他的命令时
-pnpm命令是这样：pnpm exec husky init
-npm命令是这样的：npx husky init
-
-
-
-> npm 和 pnpm 都有一个特殊的 prepare 脚本，它会在安装依赖后执行。这个脚本会在以下场景触发 !!!!!!!!!!!! 所以在prepare脚本下 进行husky的初始化
 
 
