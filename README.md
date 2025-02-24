@@ -146,9 +146,9 @@
 ```js
 //pnpm-workspace.yaml
 packages:
-    -'packages/*'
-    - 'play'
-    - 'docs'
+  -'packages/*'
+  - 'play'
+  - 'docs'
 
 ```
 
@@ -164,6 +164,8 @@ packages:
 > 如果两个配置文件都存在，pnpm 会优先读取 pnpm-workspace.yaml 文件中的配置。package.json 中的 workspaces 字段更多的是为兼容性考虑。
 
 ## 3. vitest暂时没接触，需要下去拓展
+
+
 
 
 
@@ -218,6 +220,94 @@ docs: update documentation
 然后进入.husky/commit-msg 文件里 粘贴  pnpm exec commitlint --config commitlint.config.ts --edit "$1"
 
 
+
+## 6. cz-conventional-changelog 和 cz-git
+
+`cz-conventional-changelog` 和 `cz-git (czg)` 都是 **Commitizen** 适配器，作用类似，都是用于生成符合 **Conventional Commits 规范** 的提交信息，但它们有一些区别：
+---
+### **1. `cz-conventional-changelog`**
+🔹 **作用**：
+- 它是一个传统的 Commitizen 适配器，主要用于 **交互式生成符合 Conventional Commits 规范的提交信息**。
+- 适用于标准的 `commitizen` 工作流。
+
+🔹 **用法**：
+1. 安装：
+   ```sh
+   pnpm add -D cz-conventional-changelog
+   ```
+2. 在 `package.json` 里配置：
+   ```json
+   {
+     "config": {
+       "commitizen": {
+         "path": "cz-conventional-changelog"
+       }
+     }
+   }
+   ```
+3. 运行：
+   ```sh
+   npx git-cz
+   ```
+
+🔹 **特点**：
+- 提供交互式 CLI，帮助用户选择 **类型（feat/fix/docs等）** 并填写提交信息。
+- 适用于和 **commitlint、semantic-release** 结合使用。
+- 但它比较**传统、功能固定**，不能自定义配置提交规则。
+
+---
+
+### **2. `cz-git (czg)`**
+🔹 **作用**：
+- `cz-git` 是 `cz-conventional-changelog` 的 **增强版**，提供更强大的功能，支持 **GitMoji、scope 自动补全、自定义配置**，适用于现代化项目。
+
+🔹 **用法**：
+1. 安装：
+   ```sh
+   pnpm add -D cz-git
+   ```
+2. 在 `package.json` 里配置：
+   ```json
+   {
+     "config": {
+       "commitizen": {
+         "path": "node_modules/cz-git"
+       }
+     }
+   }
+   ```
+3. 运行：
+   ```sh
+   npx cz
+   ```
+
+🔹 **特点**：
+✅ **支持 GitMoji** 🎉（比如 `✨ feat:` 这种 emoji 形式的提交信息）  
+✅ **可自定义类型**，比如增加 `test: `、`wip: ` 等  
+✅ **可配置 scope 自动补全**，比如 `fix(auth): 修复认证问题`  
+✅ **支持简洁模式**，可以直接 `czg "feat: 新功能"` 快速提交
+
+---
+
+### **总结**
+| 适配器 | 作用 | 主要区别 |
+|--------|------|---------|
+| `cz-conventional-changelog` | 传统 Commitizen 适配器 | 仅支持标准 Conventional Commits，不支持 GitMoji，自定义能力较弱 |
+| `cz-git (czg)` | 增强版 Commitizen 适配器 | 支持 GitMoji、scope 补全、简洁模式，更灵活 |
+
+如果你的项目只是简单遵循 Conventional Commits 规范，`cz-conventional-changelog` 就够了。  
+如果你想要更强大的功能（GitMoji、补全、自定义配置），推荐使用 `cz-git`！ 🚀
+
+
+
+> cz-conventional-changelog 和 cz-git 两个依赖的区别
+> cz-conventional-changelog	传统 Commitizen 适配器	仅支持标准 Conventional Commits，***不支持 GitMoji***，自定义能力较弱
+> cz-git (czg)	增强版 Commitizen 适配器	***支持 GitMoji***、scope 补全、简洁模式，更灵活
+
+
+
+### 6.1 cz-conventional-changelog
+
 其实我们配置的commitlint.config.ts文件 他结合commitizen后可以触发交互式提示
 在package.json中配置
 ```json
@@ -230,6 +320,11 @@ docs: update documentation
 }
 
 ```
-然后执行git cz就可以了
+然后执行git cz就可以了,但是他不支持gitMoJi，现在我们要切成cz-git
+
+### 6.2 cz-git
+
+
+
 
 
