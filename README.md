@@ -248,7 +248,6 @@ docs: update documentation
 
 
 ### 6.1 cz-conventional-changelog
-
 ---
 🔹 **作用**：
 - 它是一个传统的 Commitizen 适配器，主要用于 **交互式生成符合 Conventional Commits 规范的提交信息**。
