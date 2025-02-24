@@ -1,5 +1,4 @@
 # 项目基建
-
 ## 1. tsconfig相关配置
 
 ```json
@@ -324,5 +323,52 @@ docs: update documentation
 
 
 
+## 7. type-fest 
+是一个 TypeScript 类型工具库，提供了许多实用的类型定义，可以帮助开发者在 TypeScript 中更有效地使用类型。它包含了许多常用的类型组合和实用工具类型，使得 TypeScript 的类型系统更加丰富和灵活
+
+## 8. resize-observer-polyfill 
+是一个用于提供 ResizeObserver 功能的 polyfill。ResizeObserver 是一种浏览器 API，用于异步观察元素的大小变化。它允许开发者监听特定元素的尺寸变化，便于动态调整布局或进行其他操作。
+
+## 9. Prettier
+主要用于代码格式化。它会自动调整代码的风格，使其一致，例如缩进、换行、分号使用等。Prettier 的目标是确保代码的可读性，并通过统一的格式减少代码风格上的争议。
+Prettier 通常不涉及代码的逻辑或语义检查，而是专注于格式化。
+> pnpm install --save-dev prettier -w
+
+.prettierrc文件下添加如下内容
+```json
+{
+   "semi": false,
+   "singleQuote": true,
+   "overrides": [
+      {
+         "files": ".prettierrc",
+         "options": {
+            "parser": "json"
+         }
+      }
+   ]
+}
+
+```
+
+.prettierignore文件下添加如下内容,表示下面这些内容不做prettier格式化
+```
+dist
+node_modules
+coverage
+CHANGELOG.en-US.md
+pnpm-lock.yaml
+docs/components.d.ts
+docs/.vitepress/cache
+```
 
 
+
+
+## 10. ESLint
+主要用于代码质量检查和 linting（代码检查）。ESLint 会根据配置的规则分析代码，查找潜在的错误、编码规范问题和不符合最佳实践的代码。
+ESLint 可以检测语法错误、变量未定义、未使用的变量、未使用的参数等，并提供建议和警告。
+> pnpm add eslint -D
+
+然后初始化eslint
+> pnpm exec eslint --init
